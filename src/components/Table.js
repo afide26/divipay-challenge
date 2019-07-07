@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Table.css";
 import Pagination from "./Pagination";
+import { paginate } from "../utils/paginate";
 import {
   currencyFormatter,
   dateFormatter,
@@ -11,8 +12,41 @@ import {
 } from "../helpers/formatters";
 
 class Table extends React.Component {
+  state = {
+    transactions: this.props.transactions,
+    pageSize: 20,
+    currentPage: 1,
+    searchTerm: " "
+  };
+
+  handleCheck = t => {
+    const transactions = [...this.state.transactions];
+    transactions.map(function(transaction) {
+      return transaction.id === t.id
+        ? (transaction.billable = !transaction.billable)
+        : null;
+    });
+    this.setState({ transactions });
+  };
+
+  handleSearchTransactions = e => {
+    console.log(e.target.value);
+  };
+
+  handlePageChange = page => {
+    this.setState({
+      currentPage: page
+    });
+  };
   render() {
-    const transactionRows = this.props.transactions.map(transaction => {
+    const {
+      currentPage,
+      searchTerm,
+      pageSize,
+      transactions: allTransactions
+    } = this.state;
+    const transactionsCount = paginate(allTransactions, currentPage, pageSize);
+    const transactionRows = transactionsCount.map(transaction => {
       const category = this.props.categories.find(
         category => category.id === transaction.category
       );
