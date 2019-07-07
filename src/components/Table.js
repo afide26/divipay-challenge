@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Table.css";
+import Pagination from "./Pagination";
 import {
   currencyFormatter,
   dateFormatter,
@@ -60,25 +61,36 @@ class Table extends React.Component {
     });
 
     return (
-      <div className="Table">
-        <table>
-          <thead>
-            <tr>
-              <th>Status</th>
-              <th>Date</th>
-              <th>Merchant</th>
-              <th>Team Member</th>
-              <th>Category</th>
-              <th>Budget</th>
-              <th>Receipt</th>
-              <th>Billable</th>
-              <th>GST</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>{transactionRows}</tbody>
-        </table>
-      </div>
+      <>
+        <div className="Table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" className="columnBox" />
+                </th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Merchant</th>
+                <th>Team Member</th>
+                <th>Category</th>
+                <th>Budget</th>
+                <th>Receipt</th>
+                <th>Billable</th>
+                <th>GST</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>{transactionRows}</tbody>
+          </table>
+        </div>
+        <Pagination
+          itemsCount={allTransactions.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={this.handlePageChange}
+        />
+      </>
     );
   }
 }
