@@ -23,11 +23,13 @@ const FilterButton = () => {
         Filter
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {filters.map(f => (
-          <ul>
-            <li className="dropdown-item">{f}</li>
-          </ul>
-        ))}
+        <ul>
+          {filters.map(f => (
+            <li key={f} className="dropdown-item">
+              {f}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

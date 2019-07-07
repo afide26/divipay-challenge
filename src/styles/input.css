@@ -1,7 +1,6 @@
 .form-group {
   align-self: flex-start;
   display: flex;
-  margin-left: 11%;
   flex-direction: row !important;
 }
 
