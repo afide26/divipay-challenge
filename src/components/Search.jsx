@@ -1,5 +1,6 @@
 import React from "react";
 import SearchInput from "./SearchInput";
+import FilterButton from "./FilterButton";
 import "../styles/input.css";
 
 const filters = [
@@ -18,6 +19,7 @@ const Search = ({ searchTerm, searchTransactions, allTransactions }) => {
           searchTerm={searchTerm}
           searchTransactions={searchTransactions}
         />
+        <FilterButton filter={filters} />
       </div>
     </>
   );

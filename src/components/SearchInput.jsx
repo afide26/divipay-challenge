@@ -4,12 +4,7 @@ const SearchInput = ({ searchTerm }) => {
   return (
     <>
       <span className="fas fa-search form-control-feedback" />
-      <input
-        type="text"
-        className="form-control"
-        value={searchTerm}
-        placeholder="Search"
-      />
+      <input type="text" className="form-control" placeholder="Search" />
     </>
   );
 };
