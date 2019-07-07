@@ -1,5 +1,13 @@
 import React from "react";
 import "../styles/Table.css";
+import {
+  currencyFormatter,
+  dateFormatter,
+  iconStatusFormatter,
+  merchantFormatter,
+  teamMemberFormatter,
+  centredTD
+} from "../helpers/formatters";
 
 class Table extends React.Component {
   render() {
@@ -12,16 +20,41 @@ class Table extends React.Component {
       );
       return (
         <tr key={transaction.id}>
-          <td>{transaction.status}</td>
-          <td>{transaction.date}</td>
-          <td>{merchant.name}</td>
-          <td>{transaction.team_member}</td>
+          <td style={centredTD()}>
+            <input type="checkbox" className="columnBox" />
+          </td>
+          <td className="status" style={centredTD()}>
+            {iconStatusFormatter(transaction.status)}
+          </td>
+          <td>{dateFormatter(transaction.date)}</td>
+          <td>
+            {merchantFormatter(merchant.name)}
+            {merchant.name}
+          </td>
+          <td>
+            {teamMemberFormatter(transaction.team_member)}
+            {transaction.team_member}
+          </td>
           <td>{category.name}</td>
           <td>{transaction.budget}</td>
-          <td>{transaction.receipt ? "T" : "F"}</td>
-          <td>{transaction.billable ? "T" : "F"}</td>
-          <td>{transaction.gst}</td>
-          <td>{transaction.amount}</td>
+          <td style={centredTD()}>
+            {transaction.receipt ? (
+              <i className="fas fa-receipt orange" />
+            ) : (
+              <i className="fas fa-receipt blue" />
+            )}
+          </td>
+          <td style={centredTD()}>
+            <input
+              style={{ cursor: "pointer" }}
+              onChange={() => this.handleCheck(transaction)}
+              checked={transaction.billable ? true : false}
+              type="checkbox"
+              value={transaction.billable}
+            />
+          </td>
+          <td>{currencyFormatter(transaction.gst)}</td>
+          <td>{currencyFormatter(transaction.amount)}</td>
         </tr>
       );
     });
