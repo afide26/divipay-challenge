@@ -13,7 +13,7 @@ const filters = [
 ];
 const Search = ({ searchTerm, searchTransactions, allTransactions }) => {
   return (
-    <>
+    <div className="search-container">
       <div className="form-group has-search searchgroup">
         <SearchInput
           searchTerm={searchTerm}
@@ -21,7 +21,7 @@ const Search = ({ searchTerm, searchTransactions, allTransactions }) => {
         />
         <FilterButton filter={filters} />
       </div>
-    </>
+    </div>
   );
 };
 
