@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/divipay-challenge/static/css/main.897bae91.chunk.css",
+    "main.js": "/divipay-challenge/static/js/main.3b8d8a38.chunk.js",
+    "main.js.map": "/divipay-challenge/static/js/main.3b8d8a38.chunk.js.map",
+    "runtime~main.js": "/divipay-challenge/static/js/runtime~main.a7806d47.js",
+    "runtime~main.js.map": "/divipay-challenge/static/js/runtime~main.a7806d47.js.map",
+    "static/js/2.0e0242e0.chunk.js": "/divipay-challenge/static/js/2.0e0242e0.chunk.js",
+    "static/js/2.0e0242e0.chunk.js.map": "/divipay-challenge/static/js/2.0e0242e0.chunk.js.map",
+    "index.html": "/divipay-challenge/index.html",
+    "precache-manifest.633b846a9c39b64de2926b85c8b3327d.js": "/divipay-challenge/precache-manifest.633b846a9c39b64de2926b85c8b3327d.js",
+    "service-worker.js": "/divipay-challenge/service-worker.js",
+    "static/css/main.897bae91.chunk.css.map": "/divipay-challenge/static/css/main.897bae91.chunk.css.map"
+  }
+}
